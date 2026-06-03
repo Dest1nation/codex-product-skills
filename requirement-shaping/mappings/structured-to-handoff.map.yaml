@@ -1,0 +1,21 @@
+from: StructuredIR
+to: HandoffIR
+rules:
+  requirement_brief: prd_input_package.requirement_brief
+  flows: prd_input_package.flow_summary
+  state_models: prd_input_package.state_summary
+  prototype_spec: prd_input_package.prototype_summary
+  permissions: prd_input_package.permissions
+  decisions: confirmed_decisions
+  assumptions: assumptions
+  open_questions: open_questions
+  business_objects: prd_input_package.rules
+  scenario_gaps:
+    target: open_questions
+    transform: unresolved in-boundary gaps become open questions; out-of-scope gaps become future phase notes; direction-changing gaps must be resolved before handoff
+preserve:
+  - decision rationale
+  - assumption impact
+  - blocking level
+  - conflict notes
+  - scenario gap classification

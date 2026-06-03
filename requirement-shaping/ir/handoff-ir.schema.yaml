@@ -1,0 +1,33 @@
+name: HandoffIR
+version: 1
+purpose: Package structured product design for PRD writing without losing assumptions or unresolved decisions.
+required_sections:
+  - prd_input_package
+  - artifact_index
+  - confirmed_decisions
+  - assumptions
+  - open_questions
+  - prd_mapping_notes
+fields:
+  prd_input_package:
+    type: object
+    keys: [requirement_brief, flow_summary, state_summary, prototype_summary, rules]
+  artifact_index:
+    type: list
+    item_keys: [artifact, source_stage, completeness, notes]
+  confirmed_decisions:
+    type: list
+    item_keys: [decision, rationale, impact]
+  assumptions:
+    type: list
+    item_keys: [assumption, impact, validation_method]
+  open_questions:
+    type: list
+    item_keys: [question, impact, suggested_owner, prd_handling]
+  prd_mapping_notes:
+    type: object
+    keys: [recommended_prd_type, required_sections, optional_sections, acceptance_focus]
+completion_signal:
+  - The handoff package can be consumed by write-prd.
+  - Missing information is visible and impact-rated.
+  - No discovery option or major decision was silently omitted.

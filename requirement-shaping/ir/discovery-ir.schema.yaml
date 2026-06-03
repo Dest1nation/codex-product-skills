@@ -1,0 +1,55 @@
+name: DiscoveryIR
+version: 1
+purpose: Represent the user's evolving product understanding during facilitated discovery, then support summary only when decision readiness is reached.
+required_sections:
+  - conversation_memory
+  - thinking_progress
+  - decision_readiness
+  - open_tensions
+optional_sections:
+  - advancement_mode
+  - hypotheses
+  - options
+  - rejected_options
+  - brief_material
+fields:
+  conversation_memory:
+    type: list
+    description: Key turns, user reflections, model questions, changed understanding, and unresolved tensions.
+    item_keys: [turn, user_thought, model_prompt, insight, implication]
+  advancement_mode:
+    type: enum
+    description: Use when mode is evident or useful; do not force this question before the user has formed the problem.
+    values: [MVP收敛, 完整蓝图, 开放探索]
+  thinking_progress:
+    type: object
+    keys: [initial_input, current_understanding, changed_beliefs, emerging_direction]
+  decision_readiness:
+    type: object
+    keys: [goal_clarity, core_user_clarity, core_scenario_clarity, boundary_clarity, readiness_level]
+  open_tensions:
+    type: list
+    item_keys: [tension, why_it_matters, question_to_user, blocking_level]
+  hypotheses:
+    type: list
+    item_keys: [hypothesis, evidence, confidence, validation_needed]
+  options:
+    type: list
+    item_keys: [option, value, cost, risk, status]
+  rejected_options:
+    type: list
+    item_keys: [option, rejection_reason, later_revisit_condition]
+  brief_material:
+    type: object
+    description: Material for Requirement Brief, generated only after decision readiness is High or when the user explicitly asks for a partial summary.
+    keys: [goal, core_user, core_scenario, main_boundary, unresolved_questions]
+completion_signal:
+  - User can state the requirement goal in their own words.
+  - Core user is explicit.
+  - Core scenario is explicit.
+  - Main boundary is explicit.
+  - Remaining unknowns are gap-filling, not direction-forming.
+non_goals:
+  - Do not collect every possible field during early conversation.
+  - Do not force a Requirement Brief before readiness is High.
+  - Do not treat model assumptions as user understanding.

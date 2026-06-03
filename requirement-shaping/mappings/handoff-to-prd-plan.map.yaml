@@ -1,0 +1,14 @@
+from: HandoffIR
+to: PRDPlan
+rules:
+  prd_input_package.requirement_brief: [PRD背景, 需求目标, 范围说明]
+  prd_input_package.flow_summary: [业务流程, 系统流程, 异常流程]
+  prd_input_package.state_summary: [状态流转, 状态操作映射]
+  prd_input_package.prototype_summary: [页面说明, 字段说明, 交互反馈]
+  prd_input_package.permissions: [权限设计]
+  prd_input_package.rules: [业务规则, 校验规则, 验收标准]
+  assumptions: [假设说明]
+  open_questions: [待确认事项]
+handoff_prompt: |
+  请使用 $write-prd，基于以下《PRD 输入材料包》撰写结构化中文 PRD。
+  请先检查材料完整性，再输出 PRD；如有缺口，请在 PRD 中列为待确认事项。

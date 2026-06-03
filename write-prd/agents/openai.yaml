@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write PRD"
+  short_description: "按规划层渲染结构化中文 PRD"
+  default_prompt: "Use $write-prd 基于 PRD 输入材料包撰写一份结构化中文 PRD。"

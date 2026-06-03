@@ -1,0 +1,61 @@
+name: StructuredIR
+version: 1
+purpose: Convert an accepted requirement boundary into implementable product structure before PRD handoff.
+required_sections:
+  - baseline
+  - requirement_brief
+  - scope
+  - business_objects
+  - flows
+  - state_models
+  - permissions
+  - decisions
+  - assumptions
+  - open_questions
+fields:
+  baseline:
+    type: object
+    description: Accepted Discovery Summary or explicitly accepted partial brief. Structuring must not silently reopen it.
+    keys: [source, readiness_level, accepted_goal, accepted_core_user, accepted_core_scenario, accepted_boundary]
+  requirement_brief:
+    type: object
+    keys: [background, goal, users, scenarios, success_criteria]
+  scope:
+    type: object
+    keys: [in_scope, out_of_scope, phases]
+  business_objects:
+    type: list
+    item_keys: [object, description, key_fields, lifecycle_needed]
+  flows:
+    type: list
+    item_keys: [flow_name, actors, systems, happy_path, branches, exceptions]
+  state_models:
+    type: list
+    item_keys: [object, statuses, transitions, terminal_states, abnormal_states]
+  permissions:
+    type: list
+    item_keys: [role, visible_scope, allowed_actions, restricted_actions]
+  prototype_spec:
+    type: object
+    keys: [page_list, navigation, modules, operations, empty_error_states]
+  decisions:
+    type: list
+    item_keys: [decision, rationale, alternatives, impact]
+  assumptions:
+    type: list
+    item_keys: [assumption, reason, validation_needed]
+  open_questions:
+    type: list
+    item_keys: [question, impact, blocking_level, suggested_owner]
+  scenario_gaps:
+    type: list
+    item_keys: [gap, classification, handling, target_structure]
+completion_signal:
+  - Scope is explicit.
+  - Main flow and exception branches are described.
+  - State and permission effects are either designed or explicitly ruled out.
+  - Prototype-level implications are clear enough for PRD mapping.
+non_goals:
+  - Do not use Structuring to help the user discover the requirement direction.
+  - Do not repeatedly reconfirm goal, core user, core scenario, or main boundary.
+  - Do not ask broad product-shaping questions unless a direction-changing gap appears.

@@ -1,0 +1,36 @@
+from: DiscoveryIR
+to: StructuredIR
+rules:
+  decision_readiness:
+    targets:
+      - baseline.readiness_level
+      - decisions
+    transform: carry readiness evidence into the structuring baseline and record it as rationale for moving into structuring
+  conversation_memory:
+    target: requirement_brief.background_notes
+    transform: preserve only insights that explain decisions; do not dump the full conversation
+  thinking_progress.current_understanding: requirement_brief.background
+  brief_material:
+    mappings:
+      - from: goal
+        to: [baseline.accepted_goal, requirement_brief.goal]
+      - from: core_user
+        to: [baseline.accepted_core_user, requirement_brief.users]
+      - from: core_scenario
+        to: [baseline.accepted_core_scenario, requirement_brief.scenarios]
+      - from: main_boundary
+        to: [baseline.accepted_boundary, scope]
+  options:
+    target: decisions
+    transform: selected options become decisions; unselected viable options become alternatives or rejected_options
+  hypotheses:
+    target: assumptions
+    transform: unvalidated hypotheses remain assumptions
+  open_tensions: open_questions
+preserve:
+  - rejected_options
+  - conversation_memory
+  - original_terms
+preconditions:
+  - decision_readiness.readiness_level is High, or user explicitly asks to structure a partial summary
+  - brief_material exists, or Discovery Summary is generated first
