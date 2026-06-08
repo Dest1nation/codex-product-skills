@@ -1,6 +1,6 @@
 ---
 name: requirement-shaping
-description: "Guide Chinese product managers through pre-PRD product design with a three-state IR workflow: discovery exploration, structured product design, and PRD handoff preparation before using write-prd."
+description: "Use when Chinese product managers need to clarify, explore, structure, or prepare product requirements before drafting a PRD, especially for vague ideas, requirement shaping, structured product design, PRD input packages, business/system flows, state machines, permissions, prototype implications, or handoff to write-prd."
 ---
 
 # Requirement Shaping

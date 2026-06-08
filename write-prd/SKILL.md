@@ -1,6 +1,6 @@
 ---
 name: write-prd
-description: "Create, refine, review, or template structured Chinese PRDs from clear product inputs, especially a PRD input package, finalized requirement brief, product prototype, business/system flow, state machine, or implementation-ready requirement notes. Use for 中文产品需求文档、PRD、需求说明书、页面字段说明、筛选/列表/表单/导出设计、权限方案、状态流转、系统流程、业务规则、数据口径、接口同步、非功能性需求, or when turning prepared product design materials into implementation-ready PRDs."
+description: "Use when creating, refining, reviewing, or templating structured Chinese PRDs from clear product inputs, especially a PRD input package, finalized requirement brief, product prototype, business/system flow, state machine, implementation-ready notes, 中文产品需求文档, 页面字段说明, 权限方案, 状态流转, 系统流程, or business rules."
 ---
 
 # Write PRD
@@ -8,7 +8,7 @@ description: "Create, refine, review, or template structured Chinese PRDs from c
 ## Core Workflow
 
 1. First identify the input maturity: PRD input package, finalized requirement brief, product prototype, business/system flow, state machine, existing PRD draft, or clear implementation notes.
-2. If the user provides only a vague idea or asks to discuss/collect/organize the requirement first, do not run a full discovery process inside this skill. Recommend using `product-design-process` to produce a PRD input package before drafting.
+2. If the user provides only a vague idea or asks to discuss/collect/organize the requirement first, do not run a full discovery process inside this skill. Recommend using `requirement-shaping` to produce a PRD input package before drafting.
 3. When a PRD input package or prepared product design materials are provided, treat them as the source of truth. Check completeness and normalize the input into a concise internal requirement model before drafting.
 4. Run the planning layer in `references/rules/prd-planning-layer.md` before writing the PRD. Use it to produce a PRD generation plan: scenario, section plan, module ownership, required diagrams/tables, defaults, conflicts, and unresolved assumptions.
 5. Clarify only blocking unknowns that change PRD scope, page structure, state flow, permissions, data rules, or acceptance criteria. For proceed-without-confirmation requests, make reasonable assumptions and list them under "待确认事项".

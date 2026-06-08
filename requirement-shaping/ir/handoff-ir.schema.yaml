@@ -11,7 +11,7 @@ required_sections:
 fields:
   prd_input_package:
     type: object
-    keys: [requirement_brief, flow_summary, state_summary, prototype_summary, rules]
+    keys: [requirement_brief, flow_summary, state_summary, prototype_summary, permissions, rules]
   artifact_index:
     type: list
     item_keys: [artifact, source_stage, completeness, notes]

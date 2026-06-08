@@ -9,6 +9,7 @@ required_sections:
   - flows
   - state_models
   - permissions
+  - prototype_spec
   - decisions
   - assumptions
   - open_questions
